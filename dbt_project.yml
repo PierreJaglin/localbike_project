@@ -35,3 +35,12 @@ models:
     staging:
       localbike:
         +materialized: view
+        +schema: stg_localbike
+    
+    intermediate:
+      +materialized: view
+      +schema : int_localbike
+
+    mart:
+      +materialized: view
+      +schema : mart_localbike

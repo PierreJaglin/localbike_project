@@ -7,6 +7,6 @@ SELECT
     list_price,
     discount,
     {{calculate_order_item_price()}}            as amount_order,
-    Round({{calculate_order_item_price()}}*discount,2)   as amount_order_discount,
-    Round({{calculate_order_item_price()}} - {{calculate_order_item_price()}}*discount,2)   as amount_order_total
+    ROUND({{calculate_order_item_price()}}*discount,2)   as amount_order_discount,
+    ROUND({{calculate_order_item_price()}} - {{calculate_order_item_price()}}*discount,2)   as amount_order_total
 FROM {{ source('localbike','order_items') }}
